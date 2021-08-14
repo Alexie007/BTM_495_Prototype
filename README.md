@@ -12,11 +12,11 @@
 
 # Run project
 
-1 - go into backend folder
+1 - Go into backend folder
 
   `cd ./backend`
 
-2- Run python server
+2 - Run python server
 
   `python -m flask run`
 
