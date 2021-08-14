@@ -5,7 +5,6 @@ from flask import Flask, request
 from flask_cors import CORS, cross_origin
 
 from classes.customer import Customer
-# from data import getCategories, getCustomers, getProducts, getQuote
 from data import (getCategories, getCategory, getProduct, getProducts,
                   getQuote, getRawQuote)
 

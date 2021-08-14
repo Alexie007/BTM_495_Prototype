@@ -1,17 +1,14 @@
+from backend.classes.quote_product import quote_product
 from quote_product import quote_Product
 
 
 class Quote:
     ID: int
-    ProductDetails: Quote_Product
+    quote_product
     Subtotal: float
     Tax: float
     Date: str
     Total: float
-
-    #def calcSubtotal(cls): #comment calculer un sous-total avec des attributs qui sont dans une autre classe?
-
-    # def calcLabourCost(cls):
 
     def generateQuote(cls):
         print ("Date", cls.Date)

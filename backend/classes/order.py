@@ -1,11 +1,13 @@
+from backend.classes.quote import Quote
+
+
 class Order:
     ID: int
     Status: str
-    Quote: Quote
+    Quote
 
-# def generateID (cls): dont think i need this because its in Quote?
-
-def sendPONotif(cls): #this is to send an email to another employee
+#this is to send an email to another employee
+def sendPONotif(cls): 
    return None
 
 def searchOrder(cls):
