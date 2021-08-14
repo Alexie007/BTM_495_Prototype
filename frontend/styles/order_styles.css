@@ -1,0 +1,363 @@
+/* GENERIC STYLE */
+body {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: #dfdede;
+  position: relative;
+  font-family: monospace;
+  box-sizing: border-box;
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+input {
+  appearance: none;
+  border-style: none;
+}
+
+input:focus{
+  outline: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.disabled {
+  display: none;
+}
+
+.container {
+  margin-top: 10%;
+  width: 640px;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.prev-page {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.container .header{
+  margin-bottom: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .header .title {
+  font-size: 42px;
+}
+
+.container .header .infos {
+  text-align: initial;
+  text-transform: uppercase;
+}
+
+.container .header .infos div {
+  margin-bottom: 7px;
+}
+
+.container .header .logo {
+  height: 65px;
+  width: 200px;
+  background: url(../assets/italbec_logo_02.png) no-repeat center;
+  background-size: contain;
+}
+
+/* QUOTE PAGE */
+
+.quote .table-container {
+  margin-bottom: 30px;
+}
+
+.quote .table-container tr {
+  border-bottom: 1px solid black;
+}
+
+.quote .table-container td {
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.quote .totals {
+  align-self: flex-end;
+  width: 300px;
+}
+
+.quote .sub, .quote .tax, .quote .total {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.quote .totals .title {
+  margin-right: 20px;
+}
+
+.quote .totals .val {
+  width: 100px;
+}
+
+.quote .submit {
+  width: 210px;
+  background: red;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* ORDER PAGE */
+
+.order .customer .button {
+  text-align: center;
+  background: red;
+  font-size: 10px;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-top: -5px;
+  cursor: pointer;
+}
+
+.order .table-container {
+  margin-bottom: 30px;
+}
+
+.order .table-container tr {
+  border-bottom: 1px solid black;
+}
+
+.order .table-container td {
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.order .totals {
+  align-self: flex-end;
+  width: 300px;
+}
+
+.order .sub, .order .tax, .order .total {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.order .totals .title {
+  margin-right: 20px;
+}
+
+.order .totals .val {
+  width: 100px;
+}
+
+.order .button {
+  text-align: center;
+  align-self: flex-start;
+  background: red;
+  font-size: 12px;
+  color: white;
+  padding: 5px 50px;
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-top: -5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  width: 100px;
+}
+
+/* LOOKUPCUSTOMER PAGE */
+
+.lookup .search {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.lookup .number {
+  margin-bottom: 10px;
+}
+
+.lookup .search img {
+  width: 20px;
+  position: absolute;
+  top: 28px;
+  left: 5px;
+}
+
+.lookup .search input {
+  height: 25px;
+  width: 200px;
+  border-radius: 10px;
+  border-color: white;
+  background-color: white;
+  color: black;
+  padding-left: 35px;
+}
+
+.lookup .list {
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.lookup .list table {
+  border-collapse : seperate
+}
+
+.lookup .list tr {
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+}
+
+.lookup .list td {
+  padding: 10px 8px;
+}
+
+.lookup .list td .button{
+  padding: 5px 25px;
+}
+
+.lookup .list .left {
+  text-align: left;
+}
+
+
+
+.lookup .result {
+  align-self: flex-start;
+  margin-bottom: 40px;
+}
+
+.lookup .button {
+  text-align: center;
+  align-self: flex-end;
+  background: red;
+  font-size: 12px;
+  color: white;
+  padding: 5px 50px;
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-top: -5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+/* CREATE NEW CUSTOMER PAGE */
+
+.button-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.button {
+  text-align: center;
+  align-self: flex-start;
+  background: red;
+  font-size: 12px;
+  color: white;
+  padding: 5px 50px;
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-top: -5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  width: 100px;
+}
+
+.pro {
+  pointer-events: none;
+}
+
+/* CUSTOMER PROFILE PAGE */
+
+.profile .user {
+  display: flex;
+  justify-self: center;
+  margin-left: 20px;
+
+}
+
+.profile .user .left, .profile .user .right {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.profile .user .right {
+  align-items: flex-end;
+}
+
+.desc {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.desc .title {
+  margin: 0 0 10px 20px;
+}
+
+.desc .cell {
+  width: 230px;
+  height: 30px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+
+.desc .cell.greyed {
+  background: #c4c4c4;
+  pointer-events: none;
+}
+
+.profile .bottom {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.profile .bottom .button {
+  text-align: center;
+  align-self: flex-end;
+  background: red;
+  font-size: 12px;
+  color: white;
+  padding: 5px 50px;
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-top: -5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.profile .invalid {
+  color: red;
+  margin-bottom: 20px;
+}

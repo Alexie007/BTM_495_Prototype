@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../styles/order_styles.css">
+</head>
+<body class="quote">
+  <div class="container">
+    <div class="header">
+      <div class="infos">
+        <div class="title">quote</div>
+        <div class="info">
+          <div class="date">DATE: <span>-</span></div>
+          <div class="id">quote id: <span>-</span></div>
+        </div>
+      </div>
+      <div class="logo"></div>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <tr>
+          <td>product</td>
+          <td>quantity</td> 
+          <td>unit price<dth>
+          <td>total</td>
+        </tr>
+      </table>
+    </div>
+    <div class="totals">
+      <div class="sub">
+        <div class="title">subtotal</div>
+        <div class="val">123</div>
+      </div>
+      <div class="tax">
+        <div class="title">tax</div>
+        <div class="val">12343</div>
+      </div>
+      <div class="total">
+        <div class="title">total</div>
+        <div class="val">123333</div>
+      </div>
+    </div>
+
+    <div class="submit" onClick="submitQuote()">place order</div>
+  </div>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+  $.get( "http://127.0.0.1:5000/quote", function( data ) {
+    let quote = JSON.parse(data);
+    $('.date span').html(quote.Date);
+    $('.id span').html(quote.ID);
+    $('.sub .val').html(quote.Subtotal);
+    $('.tax .val').html(quote.Tax);
+    $('.total .val').html(quote.Total);
+
+    quote.QuoteProducts.forEach(quoteProduct => {
+      createRow(quoteProduct);
+    });
+  });
+
+  function createRow(quoteProduct) {
+    const row = `
+    <tr>
+      <td>${quoteProduct.Product.Name}</td>
+      <td>${quoteProduct.Quantity}</td>
+      <td>${quoteProduct.Product.Price}</td>
+      <td>${quoteProduct.Quantity * quoteProduct.Product.Price}</td>
+    </tr>
+    `
+    $('table').append(row);
+  }
+
+  function submitQuote() {
+    $.get( "http://127.0.0.1:5000/submitQuote", function( data ) {
+      window.location = "./order.html";
+    });
+  }
+</script>
+</html>

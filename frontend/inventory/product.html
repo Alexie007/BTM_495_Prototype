@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../styles/inventory_styles.css">
+</head>
+<body class="product">
+  <div class="container">
+    <div class="header">
+      <div class="title">-</div>
+      <div class="logo"></div>
+    </div>
+
+    <div class="product-container">
+      <div class="top">-</div>
+      <div class="mid">
+        <div class="box-container">
+          <div class="box"></div>
+          <div class="info">click to enlarge</div>
+        </div>
+        <div class="description">Description</div>
+      </div>
+      <div class="bottom">
+        <div class="details">
+          <div class="detail inventory">Inventory Details: <span></span></div>
+          <div class="detail warehouse">warehouse location: <span>3</span></div>
+          <div class="detail quantity">available quantity: <span>Unavailable</span></div>
+          <div class="similar-container">
+            <div class="similar">similar products:</div>
+          </div>
+        </div>
+        <div class="button">quote</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+  const url = new URL(window.location.href);
+  const productId = url.searchParams.get('productId');
+  $.get(`http://127.0.0.1:5000/product/${productId}`, function( data ) {
+    let product = JSON.parse(data);
+    
+    generateBackButton(product.CategoryId),
+    
+    $('.title, .top').html(product.Name); 
+    if (product.Status !== 'Unavailable') {
+      $('.quantity span').html(product.Quantity)
+    } else {
+      $('.button').addClass('disabled');
+    }
+
+    generateSimilarProducts(product.CategoryId);
+  });
+
+  function generateSimilarProducts(categoryId) {
+    $.get(`http://127.0.0.1:5000/products/${categoryId}`, function( data ) {
+      let products = JSON.parse(data);
+      for (let i = 0; i < 3; i ++) {
+        const random = Math.floor(Math.random()*products.length);
+        $('.similar-container').append(createProductMarkup(products[random].ID, products[random].Name))
+      }
+    });
+  }
+
+  function createProductMarkup(id, description) {
+    return `<a class="prod" href='./product.html?productId=${id}'>${description}</a>`
+  }
+
+  function generateBackButton(id) {
+    $.get(`http://127.0.0.1:5000/category/${id}`, function( data ) {
+      let category = JSON.parse(data);
+      const element = `<a href="./products.html?categoryId=${id}" class="prev-page">home>collections>${category.Description}</a>`
+      $('body').prepend(element)
+    });
+  }
+
+</script>
+</html>

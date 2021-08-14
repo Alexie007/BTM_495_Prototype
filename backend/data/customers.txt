@@ -1,0 +1,40 @@
+[{
+    "ID": 675,
+    "ShippingAddress": "123 Main Road",
+    "PaymentMethod": "Cash",
+    "Phone": "999-999-9999",
+    "Email": "apc@concordia.ca",
+    "CreationDate": "16/08/2021",
+    "FName": "Adam",
+    "LName": "Pedroso-Constantini"
+  },
+  {
+    "ID": 681,
+    "ShippingAddress": "456 Maple Drive",
+    "PaymentMethod": "Cash",
+    "Phone": "999-999-9999",
+    "Email": "dm@concordia.ca",
+    "CreationDate": "16/08/2021",
+    "FName": "Daniel",
+    "LName": "Maxim"
+  },
+  {
+    "ID": 687,
+    "ShippingAddress": "1425 rue Principale",
+    "PaymentMethod": "Cash",
+    "Phone": "999-999-9999",
+    "Email": "nd@concordia.ca",
+    "CreationDate": "16/08/2021",
+    "FName": "Noah",
+    "LName": "Domingue"
+  },
+  {
+    "ID": 702,
+    "ShippingAddress": "18 Queen Street",
+    "PaymentMethod": "Cash",
+    "Phone": "999-999-9999",
+    "Email": "ra@concordia.ca",
+    "CreationDate": "16/08/2021",
+    "FName": "Rawful",
+    "LName": "Awal"
+  }]

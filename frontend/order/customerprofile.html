@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../styles/order_styles.css">
+</head>
+<body class="profile">
+  <div class="container">
+    <div class="header">
+      <div class="infos">
+        <div class="title">customer portal</div>
+        <div>existing consumer</div>
+      </div>
+      <div class="logo"></div>
+    </div>
+
+    <div class="user">
+      <div class="left">
+        <div class="desc">
+          <div class="title">customer id</div>
+          <input class="cell id greyed" type="text">
+        </div>
+        <div div class="desc">
+          <div class="title">creation date</div>
+          <input class="cell date greyed" type="text">
+        </div>
+        <div div class="desc">
+          <div class="title">payment method</div>
+          <input class="cell method greyed" type="text">
+        </div>
+        <div div class="desc">
+          <div class="title">first name</div>
+          <input class="cell fn" type="text">
+        </div>
+        <div div class="desc">
+          <div class="title">last name</div>
+          <input class="cell ln" type="text">
+        </div>
+      </div>
+      <div class="right">
+        <div class="desc">
+          <div class="title">shipping address</div>
+          <input class="cell address" type="text">
+        </div>
+        <div class="desc">
+          <div class="title" required length="12">phone</div>
+          <input class="cell phone" type="text">
+        </div>
+        <div class="desc">
+          <div class="title">email</div>
+          <input class="cell email" type="text">
+        </div>
+      </div>
+    </div>
+
+    <div class="invalid disabled">error: each field is required.<br> Phone number must be in this format: xxx-xxx-xxxx</div>
+
+
+    <div class="bottom">
+      <div class="button create disabled" onclick="createCustomer()">create</div>
+      <div class="button update disabled">update</div>
+      <div class="button select disabled" onclick="selectCustomer()">select</div>
+    </div>
+
+  </div>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+
+const url = new URL(window.location.href);
+const customerId = url.searchParams.get('ID');
+
+if (customerId) {
+  $.get(`http://127.0.0.1:5000/customer/${customerId}`, function( data ) {
+    let customer = JSON.parse(data);
+
+    $('.fn, .ln').addClass('greyed');
+    
+    $('.update').removeClass('disabled');
+    $('.select').removeClass('disabled');
+
+    $('.id').val(customer.ID);
+    $('.date').val(customer.CreationDate);
+    $('.method').val(customer.PaymentMethod);
+    $('.fn').val(customer.FName);
+    $('.ln').val(customer.LName);
+    $('.address').val(customer.ShippingAddress);
+    $('.phone').val(customer.Phone);
+    $('.email').val(customer.Email);
+  }); 
+} else {
+  $('.id').val(Math.floor(1000 + Math.random() * 9000));
+  $('.date').val("16/08/2021");
+  $('.method').val('cash');
+  $('.create').removeClass('disabled');
+}
+
+function createCustomer() {
+  const id = $('.id').val();
+  const fn = $('.fn').val();
+  const ln = $('.ln').val();
+  const address = $('.address').val();
+  const phone = $('.phone').val();
+  const email = $('.email').val();
+
+  if (!validate()) return;
+  $.get(`http://127.0.0.1:5000/createCustomer/${id}/${fn}/${ln}/${address}/${phone}/${email}`,
+  function(data) {
+    window.location = `./customerprofile.html?ID=${id}`;
+  });
+}
+
+function updateCustomer() {
+
+}
+
+function selectCustomer() {
+  const id = $('.id').val();
+  $.get(`http://127.0.0.1:5000/selectCustomer/${id}`,
+  function(data) {
+    window.location = `./order.html?id=${id}`;
+  });
+}
+
+function validate() {
+  const fn = $('.fn').val();
+  const ln = $('.ln').val();
+  const address = $('.address').val();
+  const phone = $('.phone').val();
+  const email = $('.email').val();
+  let response = true;
+  if (!fn || !ln || !address || !phone || !email || phone.length !== 12) {
+    $('.invalid').removeClass('disabled');
+    response = false;
+  }
+  return response;
+}
+
+
+</script>
+</html>

@@ -1,0 +1,272 @@
+/* GENERIC STYLE */
+body {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: #dfdede;
+  position: relative;
+  font-family: monospace;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+input {
+  appearance: none;
+  border-style: none;
+}
+
+input:focus{
+  outline: none;
+}
+
+.container {
+  margin-top: 10%;
+  width: 640px;
+  height: 100%;
+  position: relative;
+}
+
+.prev-page {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.container .header{
+  margin-bottom: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .header .title {
+  font-size: 42px;
+}
+
+.container .header .logo {
+  height: 65px;
+  width: 200px;
+  background: url(../assets/italbec_logo_02.png) no-repeat center;
+  background-size: contain;
+}
+
+
+/* HOME PAGE */
+
+.home {
+  background-color: #f93822;
+}
+
+.home .container {
+  margin-top: 15%;
+}
+
+.home .container .header .logo {
+  height: 225px;
+  width: 225px;
+  margin: auto;
+  margin-bottom: 20px;
+  background: url(../assets/italbec_logo_01.png) no-repeat center;
+}
+
+.home .container .header .title {
+  font-size: 30px;
+  color: white;
+}
+
+.home .container .header {
+  margin-bottom: 10%;
+}
+
+.home a.button {
+  padding: 10px 80px;
+  background-color: #000;
+  border-radius: 10px;
+  color: white;
+  font-size: 22px;
+}
+
+/* COLLECTIONS PAGE*/
+
+.collections .categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.collections .category {
+  width: 160px;
+  height: 140px;
+  margin: 30px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.collections .box {
+  height: 160px;
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: #c4c4c4;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+/*  PRODUCTS PAGE */
+
+.products .search {
+  display: flex;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.products .search img {
+  width: 20px;
+  position: absolute;
+  top: 3px;
+  left: 5px;
+}
+
+.products .search input {
+  height: 25px;
+  width: 200px;
+  border-radius: 10px;
+  border-color: white;
+  background-color: white;
+  color: black;
+  padding-left: 35px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.products .product-container {
+  width: 110px;
+  height: 140px;
+  margin: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.products .product-container .box {
+  height: 100px;
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: #c4c4c4;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+/* PRODUCT PAGE */
+
+.product .product-container {
+  width: 640px;
+  background-color: #c4c4c4;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: initial;
+}
+
+.product .product-container .top {
+  font-size: 32px;
+}
+
+.product .product-container .mid {
+  display: flex;
+  margin: 20px 0 20px 20px;
+}
+
+.product .box-container {
+  margin-right: 20px;
+  text-align: center;
+}
+
+.product .mid .box {
+  height: 100px;
+  width: 100px;
+  margin-bottom: 20px;
+  background-color: #c4c4c4;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.product .mid .info {
+  width: min-content;
+  margin: auto;
+  font-size: 12px;
+}
+
+.product .mid .description {
+  width: 400px;
+  height: 100px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.product .bottom {
+  margin: 30px 0 0 20px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.product .bottom .details {
+  width: 330px;
+  font-size: 8px;
+  text-transform: uppercase;
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.product .bottom .details .detail {
+  margin-bottom: 15px;
+}
+
+.product .bottom .details .similar-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product .bottom .details .similar-container {
+  margin-right: 10px;
+}
+
+.product .bottom .details .similar-container .prod {
+  text-align: center;
+  background: #c4c4c4;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-top: -5px;
+  cursor: pointer;
+}
+
+.product .bottom .button {
+  width: 140px;
+  background: red;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  font-size: 26px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.product .bottom .button.disabled {
+  background: #fd9797f5;
+  color: #eae0e0;
+  cursor: default;
+}

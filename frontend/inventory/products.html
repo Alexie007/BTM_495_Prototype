@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../styles/inventory_styles.css">
+</head>
+<body class="products">
+  <a href="./collections.html" class="prev-page">home>collections </a>
+  <div class="container">
+    <div class="header">
+      <div class="title">-</div>
+      <div class="logo"></div>
+    </div>
+
+    <div class="search">
+      <img src="../assets/magnifier_icon.png">
+      <input type="text">
+    </div>
+
+    <div class="list"></div>
+  </div>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+  const url = new URL(window.location.href);
+  const categoryId = url.searchParams.get('categoryId');
+
+  $.get(`http://127.0.0.1:5000/category/${categoryId}`, function( data ) {
+    let category = JSON.parse(data);
+    $('.header .title').html(category.Description);
+  });
+
+  $.get(`http://127.0.0.1:5000/products/${categoryId}`, function( data ) {
+    let products = JSON.parse(data);
+
+    products.forEach(product => $('.list').append(createProductMarkup(product.ID, product.Name)));
+  });
+
+  function createProductMarkup(id, description) {
+    return `
+      <a class='product-container' href='./product.html?productId=${id}' class="product">
+        <div class='box'></div>
+        <div class='name'>${description}</div>
+      </a>
+    `
+  }
+
+</script>
+</html>
